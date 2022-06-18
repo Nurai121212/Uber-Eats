@@ -1,4 +1,4 @@
-import logo from '../../assets/logo.png';
+import logo from '../../../assets/logo.png';
 import s from './style.module.sass';
 
 export default function Footer(){

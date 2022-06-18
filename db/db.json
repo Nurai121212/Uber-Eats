@@ -143,6 +143,78 @@
         "age": 45
       },
       "token": "token_w2Gf-zHdy"
+    },
+    {
+      "auth": {
+        "username": "Anna.f",
+        "password": "qwery676767"
+      },
+      "data": {
+        "username": "Anna.f",
+        "firstName": "Frank",
+        "age": 45
+      },
+      "token": "token_Sya-ia3di"
+    },
+    {
+      "auth": {
+        "username": "Anna.ooo",
+        "password": "qwery676767"
+      },
+      "data": {
+        "username": "Anna.ooo",
+        "firstName": "Frank",
+        "age": 45
+      },
+      "token": "token_h_OAMq5NX"
+    },
+    {
+      "auth": {
+        "username": "6666Nakiti",
+        "password": "34343433433l3ll3l3l3"
+      },
+      "data": {
+        "username": "6666Nakiti",
+        "firstName": "fsfsffsfsfsffsfsffs",
+        "age": 34
+      },
+      "token": "token_n3vvQ4-3T"
+    },
+    {
+      "auth": {
+        "username": "kakakakkaka3",
+        "password": "kakakakakkakkaka898989898"
+      },
+      "data": {
+        "username": "kakakakkaka3",
+        "firstName": "kakakakakakakakakka",
+        "age": 34
+      },
+      "token": "token_FojLxz9Nw"
+    },
+    {
+      "auth": {
+        "username": "GokGokGok12",
+        "password": "nurai12121212"
+      },
+      "data": {
+        "username": "GokGokGok12",
+        "firstName": "Dzhunushova",
+        "age": 56
+      },
+      "token": "token_MGBh7NPAF"
+    },
+    {
+      "auth": {
+        "username": "LOLalalalalla",
+        "password": "34343433jdjjdjdjjd"
+      },
+      "data": {
+        "username": "LOLalalalalla",
+        "firstName": "ROMMM",
+        "age": 34
+      },
+      "token": "token_gLaWp0Vrw"
     }
   ],
   "pastry": [

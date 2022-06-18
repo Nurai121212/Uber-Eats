@@ -1,28 +1,31 @@
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../components/hooks/useAuth';
+import usersApi from '../../components/apiRequest';
 
-import Form from '../../components/Form';
-import Button from '../../components/Button';
-import { Input } from '../../components/Input';
-import { useCookies } from 'react-cookie';
+import Form from '../../components/UI/Form';
+import Button from '../../components/UI/Button';
+import { Input } from '../../components/UI/Input';
 
 export default function Login(){
-  const [, setCookies] = useCookies(['my_token'])
-  const {register, setError, handleSubmit, formState : {errors}} = useForm({
-    mode: "onBlur"
-  });
+  const [, dispatch] = useAuth();
+  const {
+    register, 
+    setError, 
+    handleSubmit, 
+    formState : {
+      errors
+    }} = useForm({ mode: "onBlur" });
 
   const onSubmit = async(data) => {
     try{
-      const res = await axios.post('http://localhost:1717/login', data);
-      if(res.status === 200){
-        setCookies('my_token', res.data.token, {path: '/', maxAge: 3600})
-      }
-    }catch(err){
-      setError('username', {type: 'custom', message: err.response.data})
-      setError('password', {type: 'custom', message: err.response.data})
+      const res = await usersApi.login(data);
+      dispatch.setUser(res.token, res.data);
+    }catch(e){
+      setError('username', {
+        type: 'custom', 
+        message: e.response.data
+      })
     }
-
   };
 
   return(
@@ -32,14 +35,14 @@ export default function Login(){
         inputname = 'username'
         label = 'Username: '
         {...register("username", {
-          required: 'Enter username !',
+          required: 'enter username',
           minLength: {
             value: 5,
-            message: "More than 5 letters !"
+            message: "username should has more than 5 letters"
           },
           pattern:{
             value: /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/g,
-            message: 'Doesnt Validate !'
+            message: 'doesnt validate'
           }
         })}
       />
@@ -49,18 +52,18 @@ export default function Login(){
         label = "Password: "
         type = 'password'
         {...register('password', {
-          required: 'Enter password !',
+          required: 'enter password',
           minLength:{
             value: 8,
             message: 'password should has more than 8 symbols.'
           },
           pattern: {
             value: /[A-Za-z0-9]+/g,
-            message: 'doesnt validate'
+            message: 'password should has only letters and numbers'
           }
         })}
       />
-      <Button type="submit">Log In</Button>
+      <Button>Log In</Button>
     </Form>
   )
 }

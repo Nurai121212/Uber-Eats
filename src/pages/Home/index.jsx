@@ -1,7 +1,11 @@
+import useAuth from "../../components/hooks/useAuth";
+
 export default function Home(){  
+  const [state] = useAuth();
+
   return(
     <>
-      <h1>Home Page</h1>
+      {state.user.data != null ? (<div>Hello {state.user.data.username}</div>): (<div>You are not loggined</div>)}
     </>
   )
 }

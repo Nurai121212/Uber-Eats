@@ -1,31 +1,33 @@
-import axios from 'axios';
-import Button from '../../components/Button';
-import Form from '../../components/Form';
 import { useForm } from 'react-hook-form';
-import { Input } from '../../components/Input';
-import { useCookies } from 'react-cookie';
+import usersApi from '../../components/apiRequest';
+import useAuth from '../../components/hooks/useAuth';
+
+import Button from '../../components/UI/Button';
+import Form from '../../components/UI/Form'
+import { Input } from '../../components/UI/Input';
 
 export default function Register(){
-  const [, setCookies] = useCookies(['my_token'])
-  const {register, setError, handleSubmit, formState: {errors}} = useForm({
-    mode: "onBlur"
-  });
+  const [, dispatch] = useAuth();
+  const {
+    register, 
+    setError, 
+    handleSubmit, 
+    formState: {
+      errors
+    }} = useForm({ mode: "onBlur" });
 
   const submitUser = async(data) => {
     try{
-      const res = await axios.post('http://localhost:1717/signin', {
-        ...data,
-        age: parseInt(data.age)
-      });
-
-      if(res.status === 200){
-        setCookies('my_token', res.data.token, {path: '/', maxAge: 3600});
-      }
-    }catch(err){
-      setError('username', {type: 'custom', message: err.response.data})
+      const res = await usersApi.register({...data, age: parseInt(data.age)});
+      dispatch.setUser(res.token, res.data)
+    }catch(e){
+      setError('username', {
+        type: 'custom', 
+        message: e.response.data
+      })
     }
+    
   };
-
 
   return(
     <Form onSubmit={handleSubmit(submitUser)}>
@@ -34,14 +36,14 @@ export default function Register(){
         inputname = 'username'
         label = 'Username: '
         {...register("username", {
-          required: 'Enter username !',
+          required: 'enter username',
           minLength: {
             value: 5,
-            message: "More than 5 letters !"
+            message: "username should has more than 5 letters"
           },
           pattern:{
             value: /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/g,
-            message: 'Doesnt Validate !'
+            message: 'doesnt validate'
           }
         })}
       />
@@ -50,14 +52,14 @@ export default function Register(){
         inputname = 'firstName'
         label = "First Name: "
         {...register('firstName', {
-          required: 'Enter First name !',
+          required: 'enter first name',
           minLength:{
-            value: 5,
-            message: 'More than 5 letters'
+            value: 3,
+            message: 'first name should has more than 3 letters'
           },
           pattern:{
             value: /^[a-zA-Z\s]*$/g,
-            message: 'Only Letters !'
+            message: 'first name should has only letters'
           }
         })}
       />
@@ -67,7 +69,7 @@ export default function Register(){
         label = "Password: "
         type = 'password'
         {...register('password', {
-          required: 'Enter password !',
+          required: 'enter password',
           minLength:{
             value: 8,
             message: 'password should has more than 8 symbols.'
@@ -83,10 +85,10 @@ export default function Register(){
         inputname = 'age'
         label = 'Age: '
         {...register('age', {
-          required: 'Enter Your Age !',
+          required: 'enter your age',
           pattern:{
             value: /[0-9]/g,
-            message: 'Only numbers !'
+            message: 'age should has only numbers'
           }
         })}
       />
