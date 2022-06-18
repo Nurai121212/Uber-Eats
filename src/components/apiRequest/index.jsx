@@ -25,6 +25,12 @@ const usersApi = {
     }).then((data) => {
       return data.data
     })
+  },
+  getPlaces: () => {
+    return instance.get('/eats/places')
+      .then((data) => {
+        return data.data
+      })
   }
 }
 

@@ -5,7 +5,13 @@ export const Input = React.forwardRef(({error, inputname, label,  type ='text', 
   return (
     <div className={s.myInput}>
       <label htmlFor={inputname}>{label}</label>
-      <input id={inputname} type={type} ref={ref} {...rest} />
+      <input 
+        id={inputname} 
+        type={type} 
+        ref={ref} 
+        {...rest} 
+        autoComplete={inputname}
+      />
       {error && (<span>{error}</span>)}
     </div>
   )

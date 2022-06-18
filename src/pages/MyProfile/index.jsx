@@ -1,3 +1,5 @@
+import s from './style.module.sass';
+import Button from '../../components/UI/Button';
 import { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import useAuth from "../../components/hooks/useAuth";
@@ -5,33 +7,29 @@ import useAuth from "../../components/hooks/useAuth";
 export default function MyProfile(){
   const [state] = useAuth();
   const [user, setUser] = useState(null);
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(state.user.data !== null) {
-      setUser(state.user.data)
-    }
-
+    if(state.user.data === null) {setUser(null)};
+    
+    setUser(state.user.data);
   }, [state]);
 
   return(
     <>
-      {
-        user !== null ? (
+      {user !== null && (
+        <div className={s.profile}>
           <div>
-            <div>
-              <h1>Username: {user.username}</h1>
-              <h2>First Name: {user.firstName}</h2>
-              <h3>Age: {user.age}</h3>
-            </div>
-            <div>
-              <button onClick={() => navigate('/')}>Home</button>
-            </div>
+            <h1>Username: {user.username}</h1>
+            <h2>First Name: {user.firstName}</h2>
+            <h3>Age: {user.age}</h3>
           </div>
-        ) : (
-          <div>Error</div>
-        )
-      }
+          <div>
+            <Button onClick={() => navigate('/')}>Home</Button>
+          </div>
+        </div>
+      )}
     </>
   )
 }

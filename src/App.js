@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import MyProfile from './pages/MyProfile';
+import PlacePage from './pages/PlacePage';
 
 function App() {
   const [state] = useAuth();
@@ -29,6 +30,10 @@ function App() {
 
           <Route path='/me' 
             element={state.user.data != null ? <MyProfile/> : <Navigate to={'/login'}/>}
+          />
+
+          <Route path='/place/:id' 
+            element={state.user.data != null ? <PlacePage/> : <Navigate to={'/'}/>}
           />
         </Routes>
       <Footer/>
