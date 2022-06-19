@@ -215,6 +215,30 @@
         "age": 34
       },
       "token": "token_gLaWp0Vrw"
+    },
+    {
+      "auth": {
+        "username": "nooraselfeghtgmail.com",
+        "password": "kskskskskskkssk232323"
+      },
+      "data": {
+        "username": "nooraselfeghtgmail.com",
+        "firstName": "Nerrrow",
+        "age": 56
+      },
+      "token": "token_z9Wuzf7zg"
+    },
+    {
+      "auth": {
+        "username": "gulmoment",
+        "password": "gulponleon100007"
+      },
+      "data": {
+        "username": "gulmoment",
+        "firstName": "gulpojisni ",
+        "age": 10005678
+      },
+      "token": "token_LFahWWTJi"
     }
   ],
   "pastry": [

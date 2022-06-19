@@ -31,6 +31,12 @@ const usersApi = {
       .then((data) => {
         return data.data
       })
+  },
+  getDishes: (id) => {
+    return instance.get('/eats/dishes/' + id)
+      .then((res) => {
+        return res.data
+      })
   }
 }
 

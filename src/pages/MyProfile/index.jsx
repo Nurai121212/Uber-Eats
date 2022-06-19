@@ -21,9 +21,9 @@ export default function MyProfile(){
       {user !== null && (
         <div className={s.profile}>
           <div>
-            <h1>Username: {user.username}</h1>
-            <h2>First Name: {user.firstName}</h2>
-            <h3>Age: {user.age}</h3>
+            <h1>{user.username}</h1>
+            <h2>{user.firstName}</h2>
+            <h3>{user.age}</h3>
           </div>
           <div>
             <Button onClick={() => navigate('/')}>Home</Button>

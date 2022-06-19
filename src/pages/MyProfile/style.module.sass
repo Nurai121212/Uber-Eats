@@ -2,10 +2,11 @@
     max-width: 500px
     width: 100%
     margin: 150px auto
+    padding: 0 15px
     div
         display: flex
         flex-direction: column
-        gap: 20px
+        gap: 10px
         h1, h2, h3
             width: 100%
             background: #d7d7d7
@@ -17,5 +18,8 @@
             border-radius: 5px
             letter-spacing: 2px
         &:nth-child(2)
-            margin-top: 50px
+            margin-top: 40px
                 
+@media only screen and ( max-width: 470px )
+    .profile
+        margin: 60px auto

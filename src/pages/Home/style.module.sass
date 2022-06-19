@@ -1,9 +1,18 @@
 .container
-    max-width: 1000px
+    max-width: 100% - 20%
     width: 100%
     margin: 93px auto 143px auto
     span
-        padding: 12px
+        padding: 8px
+        border-radius: 15px
+        background: #ffbfe9
         font-size: 24px
         line-height: 36px
         font-weight: 700
+
+@media only screen and ( max-width: 470px )
+    .container
+        max-width: 100% - 10%
+        span
+            font-size: 16px
+            line-height: 21px

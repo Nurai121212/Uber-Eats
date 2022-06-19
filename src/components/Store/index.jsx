@@ -12,10 +12,14 @@ const initState = {
 const reducer = (state, action) => {
   switch(action.type){
     case 'SET_USER':
-      const token = action.payload.token || null
-      const user = action.payload.data || null
+      const token = action.payload.token || null;
+      const user = action.payload.data || null;
 
-      Cookies.set('my_token', token);
+      if(token !== null){
+        Cookies.set('my_token', token);
+      }else{
+        Cookies.remove('my_token');
+      }
 
       return{
         ...state,
@@ -23,17 +27,6 @@ const reducer = (state, action) => {
           ...state.user,
           token: token,
           data: user
-        }
-      }
-    case 'LOGOUT': 
-      Cookies.remove('my_token');
-
-      return{
-        ...state,
-        user: {
-          ...state.user,
-          token: null,
-          data: null
         }
       }
     default:
@@ -47,11 +40,10 @@ export default function Store({children}){
   const [state, dispatch] = useReducer(reducer, initState);
 
   const setUser = useCallback((token, data)=>{
-    dispatch({type: 'SET_USER', payload: {token: token, data: data}})
-  }, []);
-
-  const logOut = useCallback(()=> {
-    dispatch({type: 'LOGOUT'})
+    dispatch({type: 'SET_USER', payload: {
+      token: token, 
+      data: data
+    }})
   }, []);
 
   const loadData = useCallback(async()=> {
@@ -69,10 +61,9 @@ export default function Store({children}){
 
   const handleDispatch = useMemo(() => (
     {
-      setUser,
-      logOut,
+      setUser
     }
-  ), [setUser, logOut]);
+  ), [setUser]);
 
   useEffect(() => {
     loadData()

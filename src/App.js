@@ -32,7 +32,7 @@ function App() {
             element={state.user.data != null ? <MyProfile/> : <Navigate to={'/login'}/>}
           />
 
-          <Route path='/place/:id' 
+          <Route path='/place/:id/' 
             element={state.user.data != null ? <PlacePage/> : <Navigate to={'/'}/>}
           />
         </Routes>

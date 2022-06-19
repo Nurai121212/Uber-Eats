@@ -1,28 +1,34 @@
+$clr1: #fff
+$clr2: #262626
 .footer
     margin-top: auto
     width: 100%
-    background: #262626
-    .footerContainer
-        padding: 68px 0 52px 0
-        max-width: 100% - 20%
+    background: $clr2
+.footerContainer
+    max-width: 100% - 20%
+    width: 100%
+    padding: 68px 0 52px 0
+    margin: 0 auto
+    display: flex
+    flex-direction: column
+    gap: 40px
+    div
+        max-width: 190px
         width: 100%
-        margin: 0 auto
-        display: flex
-        flex-direction: column
-        gap: 40px
-        div
-            max-width: 190px
+        img
             width: 100%
-            img
-                width: 100%
-                height: 100%
-        hr
-            width: 100%
-            height: 1px
-            background: #fff
-            border: 0
-            opacity: 40%
-        span
-            font-size: 13px
-            line-height: 24px
-            color: #fff
+            height: 100%
+    hr
+        width: 100%
+        height: 1px
+        background: $clr1
+        border: 0
+        opacity: 40%
+    span
+        font-size: 13px
+        line-height: 24px
+        color: $clr1
+
+@media only screen and ( max-width: 470px )
+    .footerContainer
+        max-width: 100% - 10%
