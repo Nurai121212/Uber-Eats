@@ -1,0 +1,36 @@
+.menu
+    width: 100%
+    border: 1px solid #75757533
+    div
+        max-width: 100% - 20%
+        margin: 0 auto
+        padding: 32px 0
+        ul
+            max-width: 580px
+            display: flex
+            justify-content: space-between
+            align-items: center
+            button
+                font-size: 16px
+                line-height: 18px
+
+.menuBtn
+    color: #626262
+
+.activeBtn
+    color: #327430
+    font-weight: 500
+
+@media only screen and ( max-width: 540px )
+    .menu
+        width: 100%
+        border: 1px solid #75757533
+        div
+            max-width: 100% - 10%
+            margin: 0 auto
+            padding: 60px 0 32px 0
+            ul
+                max-width: 100%
+                flex-wrap: wrap
+                justify-content: center
+                gap: 20px

@@ -1,0 +1,90 @@
+.dishItem
+    width: 100%
+    margin-top: 49px
+    border: 1px solid #757575
+    display: flex
+    justify-content: space-between
+    border-radius: 2px
+    transition: .3s
+    &:hover
+        box-shadow: 0 0 16px 5px #9d9d9d34
+        h3
+            opacity: 100%
+          
+.itemLeft
+    width: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    div
+        max-width: 245px
+        color: #1D1D1D
+        padding: 16px
+        h2
+            font-size: 16px
+            line-height: 24px
+        h3
+            font-size: 13px
+            line-height: 21px
+            margin-top: 5px
+            color: #626262
+            opacity: 0
+            transition: .3s
+        &:nth-child(2)
+            span
+                font-size: 15px
+                line-height: 21px
+                font-weight: 700
+
+.itemRight
+    overflow: hidden
+    max-width: 180px
+    width: 100%
+    height: 190px
+    position: relative
+    border-left: 1px solid #757575
+    img
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        object-fit: cover
+
+@media only screen and (max-width: 1400px)
+    .dishItem
+        margin-top: 25px
+    .itemRight
+        max-width: 250px
+        height: 180px
+    .itemLeft
+        div
+            padding: 5px
+            h3
+                white-space: nowrap
+                text-overflow: ellipsis
+                overflow: hidden
+
+
+@media only screen and (max-width: 500px)
+    .dishItem
+        margin-top: 15px
+    .itemRight
+        max-width: 150px
+        height: 160px
+    .itemRight
+        max-width: 100px
+        height: 110px
+    .itemLeft
+        max-width: 180px
+        width: 100%
+
+@media only screen and (max-width: 350px)
+    .dishItem
+        flex-direction: column
+        gap: 15px
+
+    .itemRight
+        max-width: 100%
+        height: 200px
