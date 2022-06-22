@@ -34,11 +34,11 @@ export default function Home(){
       {loading ? (<span>Loading...</span>) : 
         places.length ? (
           <>
-            <span>Welcome User</span>
+            <span>Welcome User!</span>
             <PlacesList list={places}/>
           </>
         ) : (
-          <span>You are not logged in</span>
+          <span>You are not logged in.</span>
         )}
     </div>
   )

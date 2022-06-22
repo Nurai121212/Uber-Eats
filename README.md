@@ -1,8 +1,12 @@
-# Getting Started with Create React App
+# Uber Eats App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+Technologies that I used: React Router Dom, JS Cookie, Axios, Sass, React Hook Form...\
+The app has home, login, and registration page for guests. Authorized users can use the personal profile page, and on the home page, the list of places becomes available. User can navigate through the pages of each place and view the menu.
 ## Available Scripts
+First you need to install all dependencies using the command:
+
+### `npm install`
 
 In the project directory, you can run:
 
